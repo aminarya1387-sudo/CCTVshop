@@ -1,0 +1,11 @@
+# وابستگی‌های Node.js (با npm install دوباره ساخته می‌شوند)
+server/node_modules/
+
+# فایل دیتابیس محلی (هرکس روی سیستم خودش با npm run seed می‌سازدش)
+server/db/shop.db
+server/db/shop.db-journal
+server/db/shop.db-wal
+server/db/shop.db-shm
+
+# متغیرهای محیطی حساس (در آینده)
+server/.env

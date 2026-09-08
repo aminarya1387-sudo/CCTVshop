@@ -1,0 +1,666 @@
+/* =========================================================
+   TRACK ORDER - HERO FORM (داخل .page-header)
+   ========================================================= */
+
+.track-hero-form {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr auto;
+
+    align-items: end;
+
+    gap: 14px;
+
+    max-width: 720px;
+
+    margin: 34px auto 0;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: right;
+
+}
+
+
+.track-hero-form .form-field label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        rgba(255,255,255,.85);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.track-hero-form .form-field input {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid
+        rgba(255,255,255,.25);
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-family: inherit;
+
+    background:
+        rgba(255,255,255,.12);
+
+    backdrop-filter:
+        blur(10px);
+
+    outline: none;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.track-hero-form .form-field input::placeholder {
+
+    color:
+        rgba(255,255,255,.55);
+
+}
+
+
+.track-hero-form .form-field input:focus {
+
+    border-color:
+        var(--gold-light);
+
+    background:
+        rgba(255,255,255,.18);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(245,184,46,.15);
+
+}
+
+
+.btn-track {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 14px 30px;
+
+    border: 0;
+
+    border-radius: 14px;
+
+    color: var(--heading-accent);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.2);
+
+    transition:
+        var(--transition);
+
+}
+
+
+.btn-track:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.28);
+
+}
+
+
+/* =========================================================
+   RESULT CARD
+   ========================================================= */
+
+.track-order-result {
+
+    margin-top: 26px;
+
+}
+
+
+.track-order-result:empty {
+
+    margin-top: 0;
+
+}
+
+
+.track-result-card {
+
+    /* بدون قاب اضافه؛ خودِ .glass-section بیرونی قاب کافی رو می‌ده */
+
+}
+
+
+/* ===== لیست چند سفارش (صفحه سفارش‌های من) ===== */
+
+.my-orders-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+
+.my-orders-list .track-result-card {
+
+    padding-bottom: 22px;
+
+    border-bottom:
+        1px solid
+        rgba(15,42,90,.08);
+
+}
+
+
+.my-orders-list .track-result-card:last-child {
+
+    padding-bottom: 0;
+
+    border-bottom: 0;
+
+}
+
+
+.track-result-head {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 26px;
+
+}
+
+
+.track-result-head .order-number {
+
+    color: var(--heading-accent);
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    direction: ltr;
+
+}
+
+
+.track-result-head .track-date {
+
+    color: var(--text-light);
+
+    font-size: 11px;
+
+}
+
+
+/* ===== Stepper ===== */
+
+.track-stepper {
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 24px;
+
+}
+
+
+.track-step {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    position: relative;
+
+}
+
+
+.track-step .step-circle {
+
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border:
+        2px solid
+        rgba(15,42,90,.12);
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    z-index: 2;
+
+}
+
+
+.track-step .step-label {
+
+    color: var(--text-light);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+}
+
+
+.track-step::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: 17px;
+
+    right: 50%;
+
+    width: 100%;
+
+    height: 3px;
+
+    background:
+        rgba(15,42,90,.1);
+
+    z-index: 1;
+
+}
+
+
+.track-step:first-child::before {
+
+    display: none;
+
+}
+
+
+.track-step.done .step-circle {
+
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: white;
+
+}
+
+
+.track-step.done .step-label {
+
+    color: var(--primary);
+
+}
+
+
+.track-step.done::before {
+
+    background: var(--primary);
+
+}
+
+
+.track-step.current .step-circle {
+
+    background: var(--gold-light);
+
+    border-color: var(--gold);
+
+    color: var(--primary-dark);
+
+    box-shadow:
+        0 0 0 5px
+        rgba(245,184,46,.18);
+
+}
+
+
+.track-cancelled-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px 22px;
+
+    margin-bottom: 22px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,77,103,.08);
+
+    color: var(--red);
+
+    font-weight: 800;
+
+    font-size: 13px;
+
+}
+
+
+.track-cancelled-card i {
+
+    font-size: 22px;
+
+}
+
+
+.track-details-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 30px;
+
+    margin-bottom: 24px;
+
+}
+
+
+.track-detail-block h4 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 12px;
+
+    color: var(--heading-accent);
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+}
+
+
+.track-detail-block h4 i {
+
+    color: var(--blue);
+
+}
+
+
+.track-detail-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 8px 0;
+
+    border-bottom:
+        1px dashed
+        rgba(15,42,90,.08);
+
+    font-size: 12px;
+
+    color: var(--text-light);
+
+}
+
+
+.track-detail-row strong {
+
+    color: var(--text);
+
+    font-weight: 700;
+
+}
+
+
+.track-item-desc {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-light);
+
+    font-size: 10px;
+
+}
+
+
+.track-result-items {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 16px;
+
+}
+
+
+.track-item-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid
+        rgba(15,42,90,.06);
+
+}
+
+
+.track-item-row:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.track-item-row .item-icon {
+
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 10px;
+
+    color: var(--primary);
+
+    overflow: hidden;
+
+    background:
+        rgba(22,131,255,.08);
+
+}
+
+
+.track-item-row .item-icon img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.track-item-row .item-name {
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.track-result-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 14px;
+
+    border-top:
+        1px dashed
+        rgba(15,42,90,.1);
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+}
+
+
+.track-result-total span:last-child {
+
+    color: var(--primary);
+
+}
+
+
+.track-not-found {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px 22px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,77,103,.06);
+
+    color: var(--red);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .track-hero-form {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .track-details-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 18px;
+
+    }
+
+
+    .track-step .step-label {
+
+        font-size: 8px;
+
+    }
+
+}

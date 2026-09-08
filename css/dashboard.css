@@ -1,0 +1,66 @@
+/* ============================================================
+   AMIN SYSTEM - ADMIN DASHBOARD
+   ============================================================ */
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: var(--shadow, 0 10px 30px rgba(9,27,58,0.08));
+}
+
+.stat-card .stat-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.stat-card.c1 .stat-icon { background: linear-gradient(135deg, #0b3d91, #1683ff); }
+.stat-card.c2 .stat-icon { background: linear-gradient(135deg, #d4a820, #f0c040); }
+.stat-card.c3 .stat-icon { background: linear-gradient(135deg, #2a9d8f, #3ec9b8); }
+.stat-card.c4 .stat-icon { background: linear-gradient(135deg, #e63e3e, #ff7a7a); }
+
+.stat-card .stat-value {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--admin-dark);
+}
+
+.stat-card .stat-label {
+    font-size: 0.8rem;
+    color: #6a7a8a;
+}
+
+.dash-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: rgba(212,168,32,0.08);
+    border: 1px solid rgba(212,168,32,0.15);
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: #6a5a10;
+}
+
+.dash-hint i {
+    margin-top: 3px;
+    color: var(--admin-accent);
+}

@@ -1,0 +1,900 @@
+/* =========================================================
+   AMIN SYSTEM
+   PREMIUM 2026 HOMEPAGE
+   BASE: FONT, ROOT VARIABLES, RESET, SHARED COMPONENTS
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+
+    --primary: #0b3d91;
+    --primary-dark: #06265f;
+    --primary-light: #1769d2;
+    --heading-accent: var(--primary-dark);
+
+    --blue: #1683ff;
+    --cyan: #00c6ff;
+
+    --gold: #f5b82e;
+    --gold-light: #ffd86b;
+
+    --green: #18b981;
+    --red: #ff4d67;
+
+    --silver: #cbd5e1;
+    --silver-light: #eef2f7;
+    --brand-black: #05070c;
+
+    --white: #ffffff;
+    --black: #07111f;
+
+    --text: #132238;
+    --text-light: #64748b;
+    --muted: #94a3b8;
+
+    --bg: #eef5ff;
+    --bg-2: #f7faff;
+
+    --glass: rgba(255, 255, 255, 0.72);
+    --glass-strong: rgba(255, 255, 255, 0.9);
+
+    --border: rgba(255, 255, 255, 0.65);
+
+    --shadow-sm:
+        0 8px 25px rgba(8, 45, 95, 0.08);
+
+    --shadow:
+        0 20px 60px rgba(8, 45, 95, 0.12);
+
+    --shadow-lg:
+        0 35px 100px rgba(8, 45, 95, 0.18);
+
+    --radius-sm: 12px;
+    --radius: 20px;
+    --radius-lg: 30px;
+    --radius-xl: 40px;
+
+    --transition:
+        all 0.35s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        'Vazirmatn',
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    direction: rtl;
+
+    color: var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(22,131,255,.12),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(0,198,255,.10),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(11,61,145,.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f6faff 0%,
+            #edf5ff 45%,
+            #f9fbff 100%
+        );
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+}
+
+
+body::before {
+
+    content: '';
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background-image:
+
+        radial-gradient(
+            rgba(11,61,145,.07) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 75%
+        );
+
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* =========================================================
+   PRODUCT MEDIA (عکس آپلودی داخل جعبه‌های آیکون محصول)
+   ========================================================= */
+
+.product-img img,
+.package-img img,
+.bs-img img,
+.catalog-img img,
+.item-icon img,
+.product-gallery img,
+.hero-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: inherit;
+
+}
+
+
+/* =========================================================
+   GENERAL SECTION (shared across all glass sections)
+   ========================================================= */
+
+.glass-section {
+
+    position: relative;
+
+    margin:
+        35px 3%;
+
+    padding:
+        32px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.68);
+
+    backdrop-filter:
+        blur(20px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.85);
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        var(--transition);
+
+}
+
+
+.glass-section:hover {
+
+    box-shadow:
+        var(--shadow-lg);
+
+}
+
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.section-header h2 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    color: var(--heading-accent);
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+}
+
+
+.section-header h2 i {
+
+    color: var(--blue);
+
+    filter:
+        drop-shadow(
+            0 5px 12px
+            rgba(22,131,255,.25)
+        );
+
+}
+
+
+.btn-view-all {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.btn-view-all:hover {
+
+    color: var(--blue);
+
+    transform:
+        translateX(-4px);
+
+}
+
+
+/* =========================================================
+   TOOLTIP (shared by packages + bestsellers)
+   ========================================================= */
+
+.product-tooltip {
+
+    position: fixed;
+
+    z-index: 100000;
+
+    width: 330px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    color: white;
+
+    background:
+        rgba(7,29,66,.96);
+
+    backdrop-filter:
+        blur(20px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.3);
+
+    pointer-events: none;
+
+    animation:
+        tooltipIn .2s ease;
+
+}
+
+
+@keyframes tooltipIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+.tooltip-header {
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+
+.tooltip-header h4 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 12px;
+
+}
+
+
+.tooltip-header h4 i {
+
+    color: var(--gold);
+
+}
+
+
+.tooltip-badge {
+
+    padding: 5px 8px;
+
+    color: #ffe08a;
+
+    background:
+        rgba(245,184,46,.12);
+
+    border-radius: 7px;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+.tooltip-body {
+
+    padding: 15px;
+
+}
+
+
+.tooltip-desc {
+
+    margin-bottom: 15px;
+
+    color:
+        rgba(255,255,255,.7);
+
+    font-size: 10px;
+
+    line-height: 1.9;
+
+}
+
+
+.tooltip-specs-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.spec-item {
+
+    padding: 9px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size: 8px;
+
+}
+
+
+.spec-item i {
+
+    margin-left: 4px;
+
+    color: var(--cyan);
+
+}
+
+
+.spec-value {
+
+    color: white;
+
+    font-weight: 800;
+
+}
+
+
+.tooltip-price {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 13px;
+
+}
+
+
+.price-current {
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+}
+
+
+.price-current i {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+}
+
+
+.price-old {
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: 9px;
+
+    text-decoration: line-through;
+
+}
+
+
+.price-discount {
+
+    padding: 5px 7px;
+
+    color: #ffda71;
+
+    background:
+        rgba(245,184,46,.1);
+
+    border-radius: 7px;
+
+    font-size: 8px;
+
+}
+
+
+.tooltip-tags {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+.tag {
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+}
+
+
+.tag-gold {
+
+    color: #ffd86b;
+
+    background:
+        rgba(245,184,46,.1);
+
+}
+
+
+.tag-blue {
+
+    color: #6fc4ff;
+
+    background:
+        rgba(22,131,255,.12);
+
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+.custom-notification {
+
+    position: fixed;
+
+    top: 110px;
+
+    right: 25px;
+
+    z-index: 99999;
+
+    max-width: 350px;
+
+    padding: 14px 18px;
+
+    color: white;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #06265f,
+            #0b55ae
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 20px 50px
+        rgba(6,38,95,.25);
+
+    opacity: 0;
+
+    transform:
+        translateY(-20px);
+
+    transition:
+        all .4s ease;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+#backToTop {
+
+    position: fixed;
+
+    left: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border: 0;
+
+    border-radius: 16px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(22,131,255,.3);
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        var(--transition);
+
+    z-index: 5000;
+
+}
+
+
+#backToTop.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+#backToTop:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(22,131,255,.4);
+
+}
+
+
+/* =========================================================
+   BREADCRUMB (صفحات داخلی مثل جزئیات محصول، سبد خرید، تسویه حساب)
+   ========================================================= */
+
+.breadcrumb {
+
+    margin:
+        110px 3% 0;
+
+    padding:
+        14px 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.breadcrumb a {
+
+    color: var(--primary);
+
+    transition:
+        var(--transition);
+
+}
+
+
+.breadcrumb a:hover {
+
+    color: var(--blue);
+
+}
+
+
+.breadcrumb i {
+
+    font-size: 9px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================================
+   PAGE HEADER (هدر بزرگ صفحات داخلی: محصولات، پیگیری سفارش، ...)
+   ========================================================= */
+
+.page-header {
+
+    position: relative;
+
+    margin:
+        125px 3% 0;
+
+    padding:
+        55px 8%;
+
+    overflow: hidden;
+
+    border-radius: 42px;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(0,198,255,.22),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(22,131,255,.22),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--brand-black),
+            #061d47 40%,
+            #0b3d91 75%,
+            #0a65ba
+        );
+
+    border:
+        1px solid
+        rgba(203,213,225,.14);
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.35);
+
+}
+
+
+.page-header h1 {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: white;
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+}
+
+
+.page-header h1 i {
+
+    color: var(--gold-light);
+
+}
+
+
+.page-header p {
+
+    margin-top: 12px;
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size: 14px;
+
+}
+
+
+/* ===== نسخه‌ی وسط‌چین (برای صفحاتی مثل پیگیری سفارش) ===== */
+
+.page-header.centered {
+
+    text-align: center;
+
+}
+
+
+.page-header.centered h1 {
+
+    justify-content: center;
+
+}

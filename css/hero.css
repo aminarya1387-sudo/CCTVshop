@@ -1,0 +1,477 @@
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 650px;
+
+    margin:
+        125px 3% 40px;
+
+    padding:
+        80px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border-radius: 42px;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(0,198,255,.22),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(22,131,255,.22),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--brand-black),
+            #061d47 40%,
+            #0b3d91 75%,
+            #0a65ba
+        );
+
+    border:
+        1px solid
+        rgba(203,213,225,.14);
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.35);
+
+}
+
+
+.hero::before {
+
+    content: '';
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -150px;
+    top: -180px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    box-shadow:
+
+        0 0 0 50px rgba(255,255,255,.025),
+        0 0 0 100px rgba(255,255,255,.018),
+        0 0 0 150px rgba(255,255,255,.012);
+
+}
+
+
+.hero::after {
+
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent
+        );
+
+    pointer-events: none;
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 620px;
+
+}
+
+
+.hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    padding: 9px 17px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    backdrop-filter:
+        blur(10px);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    animation:
+        floatBadge 3s ease-in-out infinite;
+
+}
+
+
+@keyframes floatBadge {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+
+.hero h1 {
+
+    color: white;
+
+    font-size:
+        clamp(42px, 5vw, 72px);
+
+    line-height: 1.15;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+}
+
+
+.hero h1 span {
+
+    position: relative;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 35px
+        rgba(255,216,107,.4);
+
+}
+
+
+.hero p {
+
+    margin:
+        20px 0 26px;
+
+    color:
+        rgba(255,255,255,.78);
+
+    font-size: 17px;
+
+    line-height: 2;
+
+}
+
+
+.hero-countdown {
+
+    width: fit-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+
+    padding: 12px 20px;
+
+    color: white;
+
+    border-radius: 15px;
+
+    background:
+        rgba(0,0,0,.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+.hero-countdown i {
+
+    color: var(--gold-light);
+
+}
+
+
+#timer {
+
+    direction: ltr;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+}
+
+
+.btn-hero {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 25px;
+
+    color: var(--primary-dark);
+
+    background:
+        linear-gradient(
+            135deg,
+            white,
+            #eaf4ff
+        );
+
+    border-radius: 15px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.15);
+
+    transition:
+        var(--transition);
+
+}
+
+
+.btn-hero:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(0,0,0,.22);
+
+}
+
+
+.btn-hero i {
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.btn-hero:hover i {
+
+    transform:
+        translateX(-5px);
+
+}
+
+
+/* =========================================================
+   HERO CAMERA
+   ========================================================= */
+
+.hero-image {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 390px;
+    height: 390px;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.hero-image::before {
+
+    content: '';
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.16),
+            rgba(0,198,255,.06),
+            transparent 70%
+        );
+
+    box-shadow:
+        0 0 100px
+        rgba(0,198,255,.2);
+
+}
+
+
+.hero-image::after {
+
+    content: '';
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle 15s linear infinite;
+
+}
+
+
+@keyframes rotateCircle {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+.hero-image i {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 220px;
+    height: 220px;
+
+    display: grid;
+    place-items: center;
+
+    color: white;
+
+    border-radius: 55px;
+
+    font-size: 115px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.2),
+            rgba(255,255,255,.06)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+
+        0 35px 80px
+        rgba(0,0,0,.22),
+
+        inset 0 1px 0
+        rgba(255,255,255,.3);
+
+    animation:
+        cameraFloat 4s ease-in-out infinite;
+
+}
+
+
+@keyframes cameraFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(3deg);
+    }
+
+}

@@ -1,0 +1,402 @@
+/* =========================================================
+   AMIN SYSTEM - DARK MODE
+   لایه‌ی جداگانه‌ی پوسته‌ی تیره؛ همه‌ی سلکتورها با [data-theme="dark"]
+   شروع می‌شوند تا فقط وقتی کاربر پوسته‌ی تیره را انتخاب کرده اجرا
+   شوند. این فایل باید آخرین CSS لود شده در هر صفحه باشد.
+   ========================================================= */
+
+
+/* ===== توکن‌های رنگی پایه ===== */
+
+:root[data-theme="dark"] {
+
+    --text: #e2e8f0;
+    --text-light: #94a3b8;
+    --muted: #64748b;
+
+    --primary: #4d9fff;
+    --heading-accent: #8ec6ff;
+
+}
+
+
+/* ===== پس‌زمینه‌ی کلی صفحه ===== */
+
+[data-theme="dark"] body {
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(22,131,255,.12),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(0,198,255,.1),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(11,61,145,.14),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #05070d 0%,
+            #070c17 45%,
+            #05070d 100%
+        );
+
+}
+
+
+[data-theme="dark"] body::before {
+
+    background-image:
+
+        radial-gradient(
+            rgba(255,255,255,.05) 1px,
+            transparent 1px
+        );
+
+}
+
+
+/* ===== سکشن‌های شیشه‌ای (پرکاربردترین کلاس کل سایت) ===== */
+
+[data-theme="dark"] .glass-section {
+
+    background: rgba(18,24,36,.65);
+
+    border-color: rgba(255,255,255,.08);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+
+}
+
+
+[data-theme="dark"] .glass-section:hover {
+
+    box-shadow: 0 35px 100px rgba(0,0,0,.5);
+
+}
+
+
+/* ===== کارت محصولات (خانه، صفحه محصولات، محصولات مرتبط) ===== */
+
+[data-theme="dark"] .catalog-card {
+
+    background: linear-gradient(145deg, #141a26, #0e1420);
+
+    border-color: rgba(255,255,255,.06);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+
+}
+
+
+[data-theme="dark"] .catalog-card:hover {
+
+    box-shadow: 0 25px 55px rgba(0,0,0,.55);
+
+}
+
+
+[data-theme="dark"] .catalog-card::after {
+
+    background: rgba(22,131,255,.12);
+
+}
+
+
+[data-theme="dark"] .catalog-img {
+
+    background: linear-gradient(145deg, #1b2434, #131a26);
+
+}
+
+
+[data-theme="dark"] .catalog-category {
+
+    background: rgba(22,131,255,.18);
+
+}
+
+
+[data-theme="dark"] .catalog-empty i {
+
+    color: #334155;
+
+}
+
+
+/* ===== نوار جستجو و فیلترها ===== */
+
+[data-theme="dark"] .catalog-search-box input,
+[data-theme="dark"] .filter-chip {
+
+    background: rgba(255,255,255,.05);
+
+    border-color: rgba(255,255,255,.1);
+
+    color: var(--text);
+
+}
+
+
+[data-theme="dark"] .filter-chip:hover {
+
+    border-color: rgba(22,131,255,.4);
+
+}
+
+
+/* ===== دراپ‌داون‌های ناوبار (جستجو، سبد خرید، حساب کاربری، منوها) ===== */
+
+[data-theme="dark"] .dropdown-menu,
+[data-theme="dark"] .sub-menu,
+[data-theme="dark"] .search-dropdown,
+[data-theme="dark"] .cart-dropdown,
+[data-theme="dark"] .account-dropdown {
+
+    background: rgba(13,18,28,.97);
+
+    border-color: rgba(255,255,255,.1);
+
+}
+
+
+[data-theme="dark"] .dropdown-menu::before {
+
+    background: rgb(13,18,28);
+
+}
+
+
+[data-theme="dark"] .dropdown-menu > li > a:hover,
+[data-theme="dark"] .sub-dropdown > a:hover,
+[data-theme="dark"] .sub-menu a:hover {
+
+    background: rgba(255,255,255,.06);
+
+}
+
+
+[data-theme="dark"] .search-dropdown input {
+
+    background: rgba(255,255,255,.06);
+
+    border-color: rgba(255,255,255,.1);
+
+    color: var(--text);
+
+}
+
+
+[data-theme="dark"] .account-dropdown-header {
+
+    border-color: rgba(255,255,255,.08);
+
+}
+
+
+[data-theme="dark"] .account-dropdown-link:hover {
+
+    background: rgba(255,255,255,.06);
+
+}
+
+
+[data-theme="dark"] .account-dropdown-guest i {
+
+    color: #475569;
+
+}
+
+
+/* ===== فرم‌ها (تسویه‌حساب، حساب کاربری) ===== */
+
+[data-theme="dark"] .checkout-form input,
+[data-theme="dark"] .checkout-form textarea,
+[data-theme="dark"] .account-form input {
+
+    background: rgba(255,255,255,.05);
+
+    border-color: rgba(255,255,255,.1);
+
+    color: var(--text);
+
+}
+
+
+[data-theme="dark"] .payment-option {
+
+    border-color: rgba(255,255,255,.08);
+
+}
+
+
+[data-theme="dark"] .payment-option:has(input:checked) {
+
+    background: rgba(22,131,255,.1);
+
+}
+
+
+[data-theme="dark"] .account-tabs {
+
+    background: rgba(255,255,255,.05);
+
+}
+
+
+/* ===== کارت‌های سفید ثابت (اعتماد، سفارش، سؤالات متداول) ===== */
+
+[data-theme="dark"] .trust-badge,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .qty-stepper button {
+
+    background: rgba(255,255,255,.06);
+
+    box-shadow: none;
+
+}
+
+
+[data-theme="dark"] .order-summary {
+
+    background: linear-gradient(145deg, #141a26, #0e1420);
+
+}
+
+
+[data-theme="dark"] .order-success .order-number {
+
+    background: rgba(22,131,255,.14);
+
+}
+
+
+/* ===== خطوط جداکننده ===== */
+
+[data-theme="dark"] .menu-divider,
+[data-theme="dark"] .full-cart-item,
+[data-theme="dark"] .my-orders-list .track-result-card {
+
+    border-color: rgba(255,255,255,.08);
+
+}
+
+
+/* ===== گالری محصول ===== */
+
+[data-theme="dark"] .gallery-main {
+
+    background: linear-gradient(145deg, #141a26, #0e1420);
+
+}
+
+
+[data-theme="dark"] .gallery-main::before {
+
+    background: radial-gradient(circle, rgba(255,255,255,.08), transparent 70%);
+
+}
+
+
+[data-theme="dark"] .gallery-thumb {
+
+    background: rgba(255,255,255,.05);
+
+}
+
+
+[data-theme="dark"] .product-price-block {
+
+    background: rgba(22,131,255,.1);
+
+}
+
+
+/* ===== بخش درباره ما + سؤالات متداول (صفحه اصلی) ===== */
+
+[data-theme="dark"] .about-box,
+[data-theme="dark"] .faq-box {
+
+    background: rgba(18,24,36,.5);
+
+    border-color: rgba(255,255,255,.06);
+
+}
+
+
+[data-theme="dark"] .about-features li {
+
+    background: rgba(255,255,255,.06);
+
+    box-shadow: none;
+
+}
+
+
+/* ===== فوتر سبد خرید (دراپ‌داون ناوبار) ===== */
+
+[data-theme="dark"] .cart-footer {
+
+    background: rgba(255,255,255,.04);
+
+}
+
+
+[data-theme="dark"] .cart-dropdown::before {
+
+    background: rgb(13,18,28);
+
+}
+
+
+/* ===== پله‌های وضعیت سفارش (پیگیری سفارش، سفارش‌های من) ===== */
+
+[data-theme="dark"] .track-step .step-circle {
+
+    background: rgba(255,255,255,.06);
+
+    border-color: rgba(255,255,255,.14);
+
+}
+
+
+[data-theme="dark"] .track-step::before {
+
+    background: rgba(255,255,255,.1);
+
+}
+
+
+/* ===== کارت‌های صفحه اصلی (اسلایدر تخفیف، پرفروش‌ها، دسته‌بندی‌ها، پکیج‌ها) ===== */
+
+[data-theme="dark"] .slider-item,
+[data-theme="dark"] .bestseller-item,
+[data-theme="dark"] .category-link,
+[data-theme="dark"] .package-item {
+
+    background: linear-gradient(145deg, #141a26, #0e1420);
+
+    border-color: rgba(255,255,255,.06);
+
+}
+
+
+[data-theme="dark"] .product-img,
+[data-theme="dark"] .bs-img {
+
+    background: linear-gradient(145deg, #1b2434, #131a26);
+
+}
+
+
+/* ===== پنل مدیریت خارج از این پوسته است (تغییر نمی‌کند) ===== */

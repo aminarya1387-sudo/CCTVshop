@@ -1,0 +1,281 @@
+/* ============================================================
+   AMIN SYSTEM - ADMIN LAYOUT (سایدبار + محتوا)
+   ============================================================ */
+
+.admin-shell {
+    display: flex;
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+/* =========================================================
+   SIDEBAR (سمت راست، چون سایت RTL است)
+   ========================================================= */
+
+.admin-sidebar {
+    width: 270px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 26px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+    background: linear-gradient(165deg, var(--admin-blue), var(--admin-dark));
+    box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+}
+
+.admin-side-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.admin-side-logo-img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 0 16px rgba(22,131,255,0.45);
+}
+
+.admin-side-logo .logo-amin {
+    color: #cbd5e1;
+}
+
+.admin-side-logo .logo-system {
+    color: var(--admin-accent);
+}
+
+.admin-side-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    margin-bottom: 6px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.07);
+}
+
+.admin-side-avatar {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--admin-accent);
+    color: var(--admin-dark);
+    font-size: 1rem;
+}
+
+.admin-side-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.admin-side-user-info strong {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.admin-side-user-info span {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.admin-side-section-title {
+    margin-top: 8px;
+    padding: 0 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+}
+
+.admin-side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.admin-side-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.admin-side-link i:first-child {
+    width: 18px;
+    text-align: center;
+    color: var(--admin-accent);
+}
+
+.admin-side-link:hover {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+}
+
+.admin-side-link.active {
+    background: var(--admin-accent);
+    color: var(--admin-dark);
+}
+
+.admin-side-link.active i:first-child {
+    color: var(--admin-dark);
+}
+
+.admin-side-link.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.admin-side-link.locked:hover {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+}
+
+.admin-side-link .lock-icon {
+    margin-inline-start: auto;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.75rem;
+}
+
+.admin-side-logout {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid rgba(230,62,62,0.35);
+    border-radius: 12px;
+    background: rgba(230,62,62,0.12);
+    color: #ff9b9b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.admin-side-logout:hover {
+    background: var(--admin-danger);
+    color: #fff;
+}
+
+.admin-side-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.admin-side-back:hover {
+    color: #fff;
+}
+
+/* =========================================================
+   MAIN CONTENT AREA
+   ========================================================= */
+
+.admin-main {
+    flex: 1;
+    min-width: 0;
+    padding: 28px 34px 50px;
+}
+
+.admin-page-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.admin-page-title i {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(212,168,32,0.12);
+    color: var(--admin-accent);
+    font-size: 1.1rem;
+}
+
+.admin-page-title h1 {
+    font-size: 1.35rem;
+    color: var(--admin-dark);
+    font-weight: 800;
+}
+
+.admin-page-title p {
+    font-size: 0.8rem;
+    color: #5a6a7a;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    .admin-shell {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .admin-side-logo {
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .admin-side-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .admin-side-logout,
+    .admin-side-back {
+        margin-top: 0;
+    }
+
+    .admin-main {
+        padding: 22px 16px 40px;
+    }
+}

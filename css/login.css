@@ -1,0 +1,141 @@
+/* ============================================================
+   AMIN SYSTEM - ADMIN LOGIN
+   ============================================================ */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(212,168,32,0.08), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(15,42,90,0.35), transparent 40%),
+        var(--admin-blue);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 38px 32px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+}
+
+.login-logo-frame {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+    padding: 16px 22px;
+    border-radius: 20px;
+    background: #05070c;
+}
+
+.login-logo-img {
+    width: 150px;
+    display: block;
+}
+
+.login-subtitle {
+    margin-bottom: 28px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6a7a8a;
+}
+
+.login-form .form-group {
+    margin-bottom: 16px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--admin-dark);
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(9,27,58,0.08);
+    border-radius: 13px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: 0.25s ease;
+}
+
+.login-form input:focus {
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 4px rgba(212,168,32,0.08);
+}
+
+.login-error {
+    display: none;
+    margin-bottom: 14px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    background: rgba(230,62,62,0.08);
+    color: var(--admin-danger);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-error.show {
+    display: block;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 13px;
+    margin-top: 6px;
+    border: 0;
+    border-radius: 13px;
+    background: var(--admin-accent);
+    color: var(--admin-dark);
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.25s ease;
+}
+
+.btn-login:hover {
+    background: #c99e1e;
+    transform: translateY(-2px);
+}
+
+.login-hint {
+    margin-top: 22px;
+    padding: 14px;
+    border-radius: 13px;
+    background: rgba(9,27,58,0.04);
+    font-size: 0.72rem;
+    line-height: 1.9;
+    color: #5a6a7a;
+}
+
+.login-hint strong {
+    color: var(--admin-dark);
+}
+
+.login-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 18px;
+    font-size: 0.78rem;
+    color: #7a8a9a;
+    text-decoration: none;
+}
+
+.login-back:hover {
+    color: var(--admin-dark);
+}

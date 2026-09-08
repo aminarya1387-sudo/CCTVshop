@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>(function(){try{var t=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+    <title>تسویه حساب | AMIN SYSTEM</title>
+    <meta name="description" content="تکمیل اطلاعات ارسال و ثبت نهایی سفارش خرید از فروشگاه AMIN SYSTEM." />
+    <link rel="icon" type="image/jpeg" href="../assets/company logo.jpg" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link rel="stylesheet" href="../css/style.css?v=20" />
+    <link rel="stylesheet" href="../css/navbar.css?v=20" />
+    <link rel="stylesheet" href="../css/cart.css?v=20" />
+    <link rel="stylesheet" href="../css/account.css?v=20" />
+    <link rel="stylesheet" href="../css/cart-page.css?v=20" />
+    <link rel="stylesheet" href="../css/checkout.css?v=20" />
+    <link rel="stylesheet" href="../css/footer.css?v=20" />
+    <link rel="stylesheet" href="../css/animations.css?v=20" />
+    <link rel="stylesheet" href="../css/enhance.css?v=20" />
+    <link rel="stylesheet" href="../css/responsive.css?v=20" />
+    <link rel="stylesheet" href="../css/dark-mode.css?v=20" />
+</head>
+<body>
+
+    <!-- ======== NAVBAR ======== -->
+    <nav class="navbar" id="navbar">
+        <div class="logo"><img src="../assets/company logo.jpg" alt="Amin System" class="logo-icon" /> <span class="logo-system">SYSTEM</span> <span class="logo-amin">AMIN</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html"><i class="fas fa-home"></i> صفحه اصلی</a></li>
+            <li><a href="products.html"><i class="fas fa-camera"></i> محصولات</a></li>
+            <li><a href="products.html?filter=discount"><i class="fas fa-tags"></i> تخفیف‌ها</a></li>
+            <li><a href="track-order.html"><i class="fas fa-truck-fast"></i> پیگیری سفارش</a></li>
+            <li><a href="../index.html#about"><i class="fas fa-info-circle"></i> درباره ما</a></li>
+        </ul>
+
+        <!-- ===== دکمه منوی موبایل ===== -->
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="باز کردن منو" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-xmark"></i>
+        </button>
+
+        <!-- ===== جستجوی محصول ===== -->
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="تغییر پوسته روشن/تیره">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+
+        <div class="search-wrapper" id="searchWrapper">
+            <div class="search-icon" id="searchIconBtn">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="search-dropdown">
+                <form id="navSearchForm">
+                    <input type="text" id="navSearchInput" placeholder="جستجوی محصول..." />
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="account-wrapper" id="accountWrapper">
+            <div class="account-icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="account-dropdown" id="accountDropdown"></div>
+        </div>
+
+        <div class="cart-wrapper">
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge">۰</span>
+            </div>
+            <div class="cart-dropdown">
+                <div class="cart-header">
+                    <h4><i class="fas fa-shopping-bag"></i> سبد خرید</h4>
+                    <span class="cart-count">۰ محصول</span>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <div class="cart-empty">
+                        <i class="fas fa-box-open"></i>
+                        <p>سبد خرید شما خالی است</p>
+                    </div>
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>مجموع:</span>
+                        <span class="total-price">$۰</span>
+                    </div>
+                    <div class="cart-actions">
+                        <a href="cart.html" class="btn-cart">🛒 سبد خرید</a>
+                        <a href="checkout.html" class="btn-checkout">تسویه حساب</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======== breadcrumb ======== -->
+    <div class="breadcrumb">
+        <a href="../index.html">صفحه اصلی</a>
+        <i class="fas fa-chevron-left"></i>
+        <a href="cart.html">سبد خرید</a>
+        <i class="fas fa-chevron-left"></i>
+        <span>تسویه حساب</span>
+    </div>
+
+    <!-- ======== تسویه حساب ======== -->
+    <section class="glass-section animate-on-scroll" id="checkoutFormSection">
+
+        <div class="section-header">
+            <h2><i class="fas fa-lock"></i> تسویه حساب</h2>
+        </div>
+
+        <div class="checkout-layout">
+
+            <form class="checkout-form" id="checkoutForm">
+
+                <div class="form-block">
+                    <h3><i class="fas fa-user"></i> اطلاعات گیرنده</h3>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>نام و نام خانوادگی</label>
+                            <input type="text" id="custName" placeholder="مثال: علی محمدی" required />
+                        </div>
+                        <div class="form-field">
+                            <label>شماره موبایل</label>
+                            <input type="tel" id="custPhone" placeholder="۰۹1۲۳۴۵۶۷۸۹" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-block">
+                    <h3><i class="fas fa-map-marker-alt"></i> آدرس ارسال</h3>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>استان و شهر</label>
+                            <input type="text" id="custCity" placeholder="مثال: تهران" required />
+                        </div>
+                        <div class="form-field">
+                            <label>کد پستی</label>
+                            <input type="text" id="custPostal" placeholder="۱۲۳۴۵۶۷۸۹۰" />
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>آدرس کامل</label>
+                        <textarea id="custAddress" rows="3" placeholder="خیابان، کوچه، پلاک، واحد" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-block">
+                    <h3><i class="fas fa-wallet"></i> روش پرداخت</h3>
+
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cod" checked />
+                            <span class="payment-label">
+                                <strong>پرداخت درب منزل</strong>
+                                <span>نقدی یا کارت‌خوان سیار</span>
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="transfer" />
+                            <span class="payment-label">
+                                <strong>کارت به کارت</strong>
+                                <span>واریز و ارسال رسید</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-full-checkout">
+                    <i class="fas fa-check-circle"></i>
+                    ثبت نهایی سفارش
+                </button>
+
+            </form>
+
+            <div class="order-summary">
+                <h3><i class="fas fa-receipt"></i> خلاصه سفارش</h3>
+
+                <div id="checkoutItems"></div>
+
+                <div class="summary-row total">
+                    <span>مبلغ قابل پرداخت</span>
+                    <span id="checkoutTotal">۰ تومان</span>
+                </div>
+
+                <div class="summary-row" style="margin-top:-6px;">
+                    <span id="checkoutCount">۰ کالا</span>
+                    <span></span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ======== پیام موفقیت سفارش ======== -->
+    <section class="glass-section order-success" id="orderSuccess">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h2>سفارش شما با موفقیت ثبت شد!</h2>
+        <p>همکاران ما به‌زودی جهت هماهنگی ارسال با شما تماس می‌گیرند.</p>
+        <div class="order-number" id="orderNumberText">AS-000000</div>
+        <div>
+            <a href="../index.html" class="btn-shop-now">
+                <i class="fas fa-home"></i>
+                بازگشت به صفحه اصلی
+            </a>
+        </div>
+    </section>
+
+    <!-- ======== فوتر ======== -->
+    <footer>
+        <div class="footer-content">
+            <p>© ۲۰۲۶ تمامی حقوق برای <strong>AMIN SYSTEM</strong> محفوظ است.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="../js/store.js?v=20"></script>
+    <script src="../js/customer-auth.js?v=20"></script>
+    <script src="../js/order-store.js?v=20"></script>
+    <script src="../js/cart.js?v=20"></script>
+    <script src="../js/navbar.js?v=20"></script>
+    <script src="../js/theme.js?v=20"></script>
+    <script src="../js/animations.js?v=20"></script>
+    <script src="../js/checkout.js?v=20"></script>
+    <script src="../js/script.js?v=20"></script>
+</body>
+</html>

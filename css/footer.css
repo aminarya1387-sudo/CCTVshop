@@ -1,0 +1,114 @@
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    margin-top: 60px;
+
+    padding:
+        35px 5%;
+
+    color:
+        rgba(255,255,255,.7);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--brand-black),
+            #082f70,
+            var(--brand-black)
+        );
+
+    border-radius:
+        35px 35px 0 0;
+
+    border-top:
+        1px solid
+        rgba(203,213,225,.1);
+
+    box-shadow:
+        0 -25px 70px
+        rgba(0,0,0,.3);
+
+}
+
+
+.footer-content {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.footer-content p {
+
+    font-size: 11px;
+
+}
+
+
+.footer-content strong {
+
+    color: white;
+
+}
+
+
+.socials {
+
+    display: flex;
+
+    gap: 9px;
+
+}
+
+
+.socials a {
+
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:
+        var(--transition);
+
+}
+
+
+.socials a:hover {
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.16);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.2);
+
+}

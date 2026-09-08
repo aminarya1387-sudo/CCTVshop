@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سفارش‌ها | پنل مدیریت AMIN SYSTEM</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/jpeg" href="assets/company logo.jpg" />
+    <link rel="stylesheet" href="css/admin-style.css?v=20" />
+    <link rel="stylesheet" href="css/admin-layout.css?v=20" />
+    <link rel="stylesheet" href="css/orders.css?v=20" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+
+    <div class="admin-shell">
+
+        <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+        <main class="admin-main">
+
+            <div class="admin-page-title">
+                <i class="fas fa-receipt"></i>
+                <div>
+                    <h1>مدیریت سفارش‌ها</h1>
+                    <p>سفارش‌های ثبت‌شده از صفحه تسویه‌حساب سایت</p>
+                </div>
+            </div>
+
+            <div class="orders-toolbar">
+                <span class="order-count" id="orderCount">۰ سفارش</span>
+
+                <div class="status-filter" id="statusFilter">
+                    <button class="status-chip active" data-status="all">همه</button>
+                    <button class="status-chip" data-status="pending">در انتظار</button>
+                    <button class="status-chip" data-status="confirmed">تأییدشده</button>
+                    <button class="status-chip" data-status="shipped">ارسال‌شده</button>
+                    <button class="status-chip" data-status="cancelled">لغوشده</button>
+                </div>
+            </div>
+
+            <div id="ordersList"></div>
+
+            <div class="orders-empty" id="ordersEmpty" style="display:none;">
+                <i class="fas fa-receipt"></i>
+                <p>هنوز سفارشی ثبت نشده است</p>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="data/admin-users.js?v=20"></script>
+    <script src="js/store.js?v=20"></script>
+    <script src="js/order-store.js?v=20"></script>
+    <script src="js/auth.js?v=20"></script>
+    <script src="js/orders.js?v=20"></script>
+</body>
+</html>

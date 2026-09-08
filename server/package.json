@@ -1,0 +1,19 @@
+{
+  "name": "persianblue-cctv-server",
+  "version": "1.0.0",
+  "description": "بک‌اند فروشگاه دوربین مداربسته AMIN SYSTEM",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:admin": "node admin-server.js",
+    "seed": "node db/seed.js",
+    "seed:users": "node db/seed-users.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}

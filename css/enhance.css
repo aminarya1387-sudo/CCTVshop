@@ -1,0 +1,197 @@
+/* =========================================================
+   AMIN SYSTEM - VISUAL ENHANCEMENTS
+   لایه‌ی اضافه روی استایل‌های موجود (چیزی را جایگزین نمی‌کند،
+   فقط جلوه‌های بصری اضافه می‌کند: درخشش، پالس، ورود پلکانی)
+   ========================================================= */
+
+
+/* ===== درخشش عبوری روی کارت محصولات هنگام هاور ===== */
+
+.catalog-card {
+    isolation: isolate;
+}
+
+.catalog-card::before {
+
+    content: '';
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 35%,
+            rgba(255,255,255,.5) 50%,
+            transparent 65%
+        );
+
+    transform: translateX(-140%);
+
+    pointer-events: none;
+
+}
+
+
+.catalog-card:hover::before {
+
+    transform: translateX(140%);
+
+    transition: transform .85s ease;
+
+}
+
+
+/* ===== پالس درخشان روی تگ تخفیف ===== */
+
+@keyframes pbBadgePulse {
+
+    0%, 100% {
+        box-shadow: 0 7px 18px rgba(245,184,46,.22);
+    }
+
+    50% {
+        box-shadow: 0 10px 28px rgba(245,184,46,.55);
+    }
+
+}
+
+
+.catalog-badge.discount {
+    animation: pbBadgePulse 2.4s ease-in-out infinite;
+}
+
+
+/* ===== درخشش عبوری روی دکمه‌های اصلی هنگام هاور ===== */
+
+.catalog-btn,
+.btn-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.catalog-btn::after,
+.btn-hero::after {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    right: -60%;
+
+    width: 40%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: right .6s ease;
+
+    pointer-events: none;
+
+}
+
+
+.catalog-btn:hover::after,
+.btn-hero:hover::after {
+    right: 120%;
+}
+
+
+/* ===== ورود پلکانی کارت‌های محصول داخل بخش‌های انیمیشنی ===== */
+
+.animate-on-scroll .catalog-card {
+    transition:
+        opacity .5s ease,
+        transform .5s ease,
+        box-shadow .35s ease,
+        translate .35s ease;
+}
+
+.animate-on-scroll:not(.visible) .catalog-card {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.animate-on-scroll.visible .catalog-card:nth-child(1) { transition-delay: .03s; }
+.animate-on-scroll.visible .catalog-card:nth-child(2) { transition-delay: .08s; }
+.animate-on-scroll.visible .catalog-card:nth-child(3) { transition-delay: .13s; }
+.animate-on-scroll.visible .catalog-card:nth-child(4) { transition-delay: .18s; }
+.animate-on-scroll.visible .catalog-card:nth-child(5) { transition-delay: .23s; }
+.animate-on-scroll.visible .catalog-card:nth-child(6) { transition-delay: .28s; }
+.animate-on-scroll.visible .catalog-card:nth-child(7) { transition-delay: .33s; }
+.animate-on-scroll.visible .catalog-card:nth-child(8) { transition-delay: .38s; }
+
+
+/* ===== خط نئون زیر ناوبار هنگام اسکرول ===== */
+
+.navbar.scrolled::after {
+
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--cyan),
+            var(--blue),
+            transparent
+        );
+
+    opacity: .7;
+
+}
+
+
+/* ===== گالری محصول: درخشش لبه‌ی عکس اصلی ===== */
+
+.gallery-main {
+    box-shadow: 0 20px 55px rgba(7,44,92,.12);
+}
+
+
+/* ===== حرکت نرم‌تر روی هاور بج‌های اعتماد صفحه محصول ===== */
+
+.trust-badge {
+    transition: var(--transition);
+}
+
+.trust-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(7,44,92,.1);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .catalog-card::before,
+    .catalog-btn::after,
+    .btn-hero::after {
+        display: none;
+    }
+
+    .catalog-badge.discount {
+        animation: none;
+    }
+
+}

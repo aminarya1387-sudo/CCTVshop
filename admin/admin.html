@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محصولات | پنل مدیریت AMIN SYSTEM</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/jpeg" href="assets/company logo.jpg" />
+    <link rel="stylesheet" href="css/admin-style.css?v=20" />
+    <link rel="stylesheet" href="css/admin-layout.css?v=20" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+
+    <div class="admin-shell">
+
+        <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+        <main class="admin-main">
+
+            <div class="admin-page-title">
+                <i class="fas fa-camera-retro"></i>
+                <div>
+                    <h1>مدیریت محصولات</h1>
+                    <p>افزودن، ویرایش و حذف محصولات فروشگاه</p>
+                </div>
+            </div>
+
+            <!-- ======== بخش اصلی ======== -->
+            <div class="admin-container">
+
+                <!-- ===== فرم افزودن/ویرایش محصول ===== -->
+                <section class="admin-form-section">
+                    <h2 id="formTitle"><i class="fas fa-plus-circle"></i> افزودن محصول جدید</h2>
+                    <form id="productForm" class="admin-form">
+                        <input type="hidden" id="productId" value="" />
+
+                        <div class="form-group">
+                            <label>عکس‌های محصول (چند عکس مجازه)</label>
+                            <input type="file" id="productImageFile" accept="image/*" multiple />
+                            <div class="image-grid" id="imageGrid"></div>
+                            <span class="field-hint">عکس اول به عنوان عکس اصلی نمایش داده می‌شود؛ با دکمه ⭐ می‌تونی عکس اصلی رو عوض کنی. اگر عکسی انتخاب نکنی، از آیکون پایین استفاده می‌شود.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>نام محصول</label>
+                            <input type="text" id="productName" placeholder="مثال: دوربین Bullet 4K" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>توضیحات کوتاه</label>
+                            <input type="text" id="productDesc" placeholder="مثال: دید در شب ۵۰ متر، مقاوم در برابر آب" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>توضیحات تکمیلی (اختیاری - برای صفحه جزئیات محصول)</label>
+                            <textarea id="productLongDesc" rows="3" placeholder="اگر خالی بماند، توضیحات تکمیلی به‌صورت خودکار ساخته می‌شود"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>قیمت (تومان)</label>
+                                <input type="number" id="productPrice" placeholder="۱۱۳۰۰۰" required />
+                            </div>
+                            <div class="form-group">
+                                <label>قیمت قبلی (تومان)</label>
+                                <input type="number" id="productOldPrice" placeholder="۱۸۹۰۰۰" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>درصد تخفیف</label>
+                                <input type="text" id="productDiscount" placeholder="۴۰٪" />
+                            </div>
+                            <div class="form-group">
+                                <label>آیکون یدکی (Font Awesome)</label>
+                                <input type="text" id="productIcon" placeholder="fa-camera-retro" value="fa-camera-retro" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>دسته‌بندی</label>
+                                <select id="productCategory">
+                                    <option value="camera">دوربین</option>
+                                    <option value="nvr">NVR / DVR</option>
+                                    <option value="package">پکیج</option>
+                                    <option value="accessory">تجهیزات جانبی</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>موجودی انبار (تعداد)</label>
+                                <input type="number" id="productStock" placeholder="۲۰" min="0" value="20" />
+                            </div>
+                        </div>
+
+                        <div class="form-group form-checkbox">
+                            <label>
+                                <input type="checkbox" id="productBestseller" />
+                                نمایش در بخش «پرفروش‌ترین محصولات»
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit" id="submitBtn">
+                                <i class="fas fa-save"></i> ذخیره محصول
+                            </button>
+                            <button type="reset" class="btn-reset">
+                                <i class="fas fa-undo"></i> پاک کردن فرم
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- ===== لیست محصولات ===== -->
+                <section class="admin-list-section">
+                    <div class="list-header">
+                        <h2><i class="fas fa-list"></i> لیست محصولات</h2>
+                        <span class="product-count" id="productCount">۰ محصول</span>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="admin-table" id="productTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>عکس</th>
+                                    <th>نام</th>
+                                    <th>دسته</th>
+                                    <th>قیمت</th>
+                                    <th>تخفیف</th>
+                                    <th>موجودی</th>
+                                    <th>عملیات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productTableBody">
+                                <!-- محصولات توسط جاوااسکریپت ساخته میشه -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-empty" id="tableEmpty">
+                        <i class="fas fa-box-open"></i>
+                        <p>هیچ محصولی ثبت نشده است</p>
+                        <span>با فرم بالا محصول جدید اضافه کنید</span>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- ======== نوتیفیکیشن ======== -->
+    <div id="adminNotification" class="admin-notification"></div>
+
+    <script src="data/admin-users.js?v=20"></script>
+    <script src="js/store.js?v=20"></script>
+    <script src="js/auth.js?v=20"></script>
+    <script src="js/admin.js?v=20"></script>
+</body>
+</html>

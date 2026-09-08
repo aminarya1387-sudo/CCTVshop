@@ -1,0 +1,49 @@
+/* =========================================================
+   SCROLL ANIMATION
+   ========================================================= */
+
+.animate-on-scroll {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.animate-on-scroll.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+
+    }
+
+}

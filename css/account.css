@@ -1,0 +1,554 @@
+/* =========================================================
+   ACCOUNT WIDGET (آیکون حساب کاربری در ناوبار)
+   ========================================================= */
+
+.account-wrapper {
+
+    position: relative;
+
+    z-index: 20;
+
+}
+
+
+.account-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    cursor: pointer;
+
+    color: var(--cyan);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    transition:
+        var(--transition);
+
+}
+
+
+.account-icon:hover {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--blue)
+        );
+
+}
+
+
+.account-icon i {
+
+    font-size: 17px;
+
+}
+
+
+.account-dropdown {
+
+    position: absolute;
+
+    top: 60px;
+
+    left: 0;
+
+    width: 280px;
+
+    padding: 8px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.96);
+
+    backdrop-filter:
+        blur(25px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 30px 100px
+        rgba(5,39,86,.22);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(12px)
+        scale(.97);
+
+    transform-origin:
+        top left;
+
+    transition:
+        all .35s cubic-bezier(.2,.8,.2,1);
+
+    z-index: 1000;
+
+}
+
+
+.account-wrapper:hover .account-dropdown {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+.account-dropdown-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 12px;
+
+    border-bottom:
+        1px solid
+        rgba(15,42,90,.07);
+
+    margin-bottom: 6px;
+
+}
+
+
+.account-dropdown-header i {
+
+    font-size: 30px;
+
+    color: var(--primary);
+
+}
+
+
+.account-dropdown-header strong {
+
+    display: block;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+}
+
+
+.account-dropdown-header span {
+
+    color: var(--text-light);
+
+    font-size: 11px;
+
+    direction: ltr;
+
+    display: block;
+
+    text-align: right;
+
+}
+
+
+.account-dropdown-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    background: none;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    text-align: right;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.account-dropdown-link i {
+
+    color: var(--primary);
+
+    width: 16px;
+
+}
+
+
+.account-dropdown-link:hover {
+
+    background:
+        rgba(22,131,255,.08);
+
+    color: var(--primary);
+
+}
+
+
+.account-logout-btn {
+
+    color: var(--red);
+
+}
+
+
+.account-logout-btn i {
+
+    color: var(--red);
+
+}
+
+
+.account-logout-btn:hover {
+
+    background:
+        rgba(255,77,103,.08);
+
+    color: var(--red);
+
+}
+
+
+.account-dropdown-guest {
+
+    padding: 18px 16px;
+
+    text-align: center;
+
+}
+
+
+.account-dropdown-guest i {
+
+    font-size: 30px;
+
+    color: var(--muted);
+
+    margin-bottom: 10px;
+
+}
+
+
+.account-dropdown-guest p {
+
+    margin-bottom: 14px;
+
+    color: var(--text-light);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+.account-dropdown-cta {
+
+    display: block;
+
+    padding: 12px;
+
+    border-radius: 13px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--blue)
+        );
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.account-dropdown-cta:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(22,131,255,.3);
+
+}
+
+
+/* =========================================================
+   ACCOUNT PAGE (ورود / ثبت‌نام)
+   ========================================================= */
+
+.account-page-section {
+
+    max-width: 480px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.account-tabs {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 26px;
+
+    padding: 6px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(15,42,90,.05);
+
+}
+
+
+.account-tab {
+
+    flex: 1;
+
+    padding: 12px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background: none;
+
+    color: var(--text-light);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.account-tab.active {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--blue)
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(22,131,255,.25);
+
+}
+
+
+.account-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+
+.account-form .form-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+
+.account-form label {
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.account-form input {
+
+    padding: 14px 16px;
+
+    border: 2px solid
+        rgba(15,42,90,.07);
+
+    border-radius: 14px;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    font-family: inherit;
+
+    background:
+        rgba(255,255,255,.6);
+
+    outline: none;
+
+    transition:
+        var(--transition);
+
+}
+
+
+.account-form input:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(22,131,255,.08);
+
+}
+
+
+.account-form-error {
+
+    display: none;
+
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,77,103,.08);
+
+    color: var(--red);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+}
+
+
+.account-form-error.show {
+
+    display: block;
+
+}
+
+
+.btn-account-submit {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    border: 0;
+
+    border-radius: 14px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--blue)
+        );
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    font-family: inherit;
+
+    box-shadow:
+        0 12px 30px
+        rgba(22,131,255,.25);
+
+    transition:
+        var(--transition);
+
+}
+
+
+.btn-account-submit:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(22,131,255,.35);
+
+}
