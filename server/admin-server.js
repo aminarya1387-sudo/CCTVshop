@@ -17,6 +17,9 @@ const authRouter = require('./routes/auth');
 const productsPublicRouter = require('./routes/products-public'); // GET (برای نمایش جدول محصولات در پنل)
 const productsAdminRouter = require('./routes/products-admin');   // POST/PUT/DELETE
 const ordersAdminRouter = require('./routes/orders-admin');
+const bannersPublicRouter = require('./routes/banners-public');    // GET بنرهای فعال (برای پیش‌نمایش)
+const bannersAdminRouter = require('./routes/banners-admin');      // لیست کامل + افزودن/ویرایش/حذف
+const imagesAdminRouter = require('./routes/images-admin');        // جستجو/دانلود عکس از اینترنت
 
 const app = express();
 
@@ -52,6 +55,9 @@ app.use('/api/auth', authRouter);
 app.use('/api/products', productsPublicRouter);
 app.use('/api/products', productsAdminRouter);
 app.use('/api/orders', ordersAdminRouter);
+app.use('/api/banners', bannersAdminRouter);
+app.use('/api/banners', bannersPublicRouter);
+app.use('/api/images', imagesAdminRouter);
 
 
 // ===== فایل‌های مشترک (استایل/اسکریپت) که پنل ادمین هم لازم دارد =====

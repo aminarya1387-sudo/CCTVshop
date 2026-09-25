@@ -123,6 +123,12 @@ async function renderAdminSidebar(activeKey) {
             </div>
         </div>
 
+        <button type="button" class="admin-side-search" id="adminSideSearch">
+            <i class="fas fa-magnifying-glass"></i>
+            جستجوی سریع…
+            <kbd>Ctrl K</kbd>
+        </button>
+
         <div class="admin-side-section-title">دسترسی‌های شما</div>
 
         <nav class="admin-side-nav">
@@ -133,7 +139,7 @@ async function renderAdminSidebar(activeKey) {
 
                 if (allowed) {
                     return `
-                        <a href="${s.href}" class="admin-side-link ${isActive ? 'active' : ''}">
+                        <a href="${s.href}" class="admin-side-link ${isActive ? 'active' : ''}" data-key="${s.key}">
                             <i class="fas ${s.icon}"></i>
                             <span>${s.title}</span>
                         </a>
@@ -167,6 +173,11 @@ async function renderAdminSidebar(activeKey) {
         await AdminAuth.logout();
         location.href = 'login.html';
     });
+
+    // ابزارهای هوشمند (جستجوی سریع، شمارنده‌های سایدبار) - js/admin-smart.js
+    if (typeof AdminSmart !== 'undefined') {
+        AdminSmart.init(session);
+    }
 
     return session;
 

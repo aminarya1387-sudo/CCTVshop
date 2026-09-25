@@ -7,7 +7,8 @@
     "start": "node server.js",
     "start:admin": "node admin-server.js",
     "seed": "node db/seed.js",
-    "seed:users": "node db/seed-users.js"
+    "seed:users": "node db/seed-users.js",
+    "images": "node scripts/fetch-product-images.js"
   },
   "dependencies": {
     "express": "^4.19.2",

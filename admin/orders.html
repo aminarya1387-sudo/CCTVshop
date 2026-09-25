@@ -6,9 +6,10 @@
     <title>سفارش‌ها | پنل مدیریت AMIN SYSTEM</title>
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/jpeg" href="assets/company logo.jpg" />
-    <link rel="stylesheet" href="css/admin-style.css?v=20" />
-    <link rel="stylesheet" href="css/admin-layout.css?v=20" />
-    <link rel="stylesheet" href="css/orders.css?v=20" />
+    <link rel="stylesheet" href="css/admin-style.css?v=21" />
+    <link rel="stylesheet" href="css/admin-layout.css?v=21" />
+    <link rel="stylesheet" href="css/orders.css?v=21" />
+    <link rel="stylesheet" href="css/admin-theme.css?v=21" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
@@ -37,6 +38,11 @@
                     <button class="status-chip" data-status="shipped">ارسال‌شده</button>
                     <button class="status-chip" data-status="cancelled">لغوشده</button>
                 </div>
+
+                <div class="orders-search">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <input type="search" id="orderSearch" class="cg-input" placeholder="کد سفارش، نام یا موبایل مشتری…" />
+                </div>
             </div>
 
             <div id="ordersList"></div>
@@ -50,10 +56,11 @@
 
     </div>
 
-    <script src="data/admin-users.js?v=20"></script>
-    <script src="js/store.js?v=20"></script>
-    <script src="js/order-store.js?v=20"></script>
-    <script src="js/auth.js?v=20"></script>
-    <script src="js/orders.js?v=20"></script>
+    <script src="data/admin-users.js?v=21"></script>
+    <script src="js/store.js?v=21"></script>
+    <script src="js/order-store.js?v=21"></script>
+    <script src="js/auth.js?v=21"></script>
+    <script src="js/admin-smart.js?v=21"></script>
+    <script src="js/orders.js?v=21"></script>
 </body>
 </html>

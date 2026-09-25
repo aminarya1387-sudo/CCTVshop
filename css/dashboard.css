@@ -1,23 +1,50 @@
 /* ============================================================
-   AMIN SYSTEM - ADMIN DASHBOARD
+   AMIN SYSTEM - ADMIN DASHBOARD (هوشمند)
    ============================================================ */
 
 .stat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 18px;
-    margin-bottom: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
 }
 
 .stat-card {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 22px;
-    border-radius: 18px;
-    background: rgba(255,255,255,0.8);
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow: var(--shadow, 0 10px 30px rgba(9,27,58,0.08));
+    padding: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    animation: cgRise .6s cubic-bezier(.2,.8,.2,1) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    left: -50px;
+    top: -60px;
+    border-radius: 50%;
+    background: var(--c, #22d3ee);
+    opacity: .12;
+    filter: blur(30px);
+    transition: opacity .3s ease;
+}
+
+a.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--cg-border-strong);
+}
+
+.stat-card:hover::after {
+    opacity: .25;
 }
 
 .stat-card .stat-icon {
@@ -26,41 +53,459 @@
     flex-shrink: 0;
     display: grid;
     place-items: center;
-    border-radius: 15px;
+    border-radius: 16px;
     font-size: 1.2rem;
     color: #fff;
+    background: var(--c);
+    box-shadow: 0 10px 28px color-mix(in srgb, var(--c) 45%, transparent);
 }
 
-.stat-card.c1 .stat-icon { background: linear-gradient(135deg, #0b3d91, #1683ff); }
-.stat-card.c2 .stat-icon { background: linear-gradient(135deg, #d4a820, #f0c040); }
-.stat-card.c3 .stat-icon { background: linear-gradient(135deg, #2a9d8f, #3ec9b8); }
-.stat-card.c4 .stat-icon { background: linear-gradient(135deg, #e63e3e, #ff7a7a); }
+.stat-card.c1 { --c: #06b6d4; }
+.stat-card.c2 { --c: #6366f1; }
+.stat-card.c3 { --c: #10b981; }
+.stat-card.c4 { --c: #f59e0b; }
+.stat-card.c5 { --c: #8b5cf6; }
+.stat-card.c6 { --c: #ef4444; }
+.stat-card.c7 { --c: #ec4899; }
+.stat-card.c8 { --c: #14b8a6; }
+
+.stat-body {
+    min-width: 0;
+}
 
 .stat-card .stat-value {
-    font-size: 1.5rem;
+    color: #fff;
+    font-size: 1.35rem;
     font-weight: 900;
-    color: var(--admin-dark);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
 }
 
 .stat-card .stat-label {
-    font-size: 0.8rem;
-    color: #6a7a8a;
+    color: var(--cg-muted);
+    font-size: .76rem;
 }
 
-.dash-hint {
+.stat-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 5px;
+    padding: 1px 8px;
+    border-radius: 20px;
+    font-size: .68rem;
+    font-weight: 800;
+}
+
+.stat-trend.up   { background: rgba(52,211,153,.14); color: #6ee7b7; }
+.stat-trend.down { background: rgba(248,113,113,.14); color: #fca5a5; }
+
+
+/* ===== چیدمان کارت‌ها ===== */
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.dash-grid > .cg-card {
+    grid-column: span 6;
+    padding: 20px;
+    border-radius: 22px;
+}
+
+.dash-grid > .dash-chart-card { grid-column: span 7; }
+.dash-grid > .dash-insights-card { grid-column: span 5; }
+.dash-grid > .dash-chart-card[hidden] + .dash-insights-card { grid-column: span 12; }
+
+.dash-card-head {
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 18px 20px;
-    border-radius: 16px;
-    background: rgba(212,168,32,0.08);
-    border: 1px solid rgba(212,168,32,0.15);
-    font-size: 0.82rem;
-    line-height: 1.9;
-    color: #6a5a10;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
 }
 
-.dash-hint i {
-    margin-top: 3px;
-    color: var(--admin-accent);
+.dash-card-head h3 {
+    font-size: .95rem;
+    font-weight: 800;
+}
+
+.dash-card-head h3 i {
+    margin-left: 6px;
+    color: var(--cg-cyan);
+}
+
+.dash-chip {
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(34,211,238,.25);
+    background: rgba(34,211,238,.08);
+    color: #67e8f9;
+    font-size: .72rem;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dash-chip.violet {
+    border-color: rgba(168,85,247,.3);
+    background: rgba(168,85,247,.1);
+    color: #d8b4fe;
+}
+
+
+/* ===== نمودار فروش ===== */
+
+.dash-chart {
+    position: relative;
+    height: 240px;
+}
+
+.dash-chart svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.dc-grid {
+    stroke: rgba(255,255,255,.06);
+    stroke-dasharray: 4 6;
+}
+
+.dc-label {
+    fill: var(--cg-muted);
+    font-size: 10px;
+    text-anchor: middle;
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.dc-line {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    filter: drop-shadow(0 0 8px rgba(34,211,238,.6));
+    animation: dcDraw 1.6s ease forwards;
+}
+
+.dc-area {
+    opacity: 0;
+    animation: dcFadeIn .8s ease .6s forwards;
+}
+
+@keyframes dcFadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes dcDraw {
+    to { stroke-dashoffset: 0; }
+}
+
+.dc-point circle {
+    fill: #0b1224;
+    stroke: #22d3ee;
+    stroke-width: 2;
+    opacity: 0;
+    transition: opacity .2s ease, r .2s ease;
+}
+
+.dc-point:hover circle {
+    opacity: 1;
+    r: 6;
+}
+
+.dash-empty-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: var(--cg-muted);
+    font-size: .85rem;
+}
+
+
+/* ===== دستیار هوشمند ===== */
+
+.dash-insights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 330px;
+    overflow-y: auto;
+    padding-left: 4px;
+}
+
+.dash-insight {
+    --tone: #22d3ee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--tone) 28%, transparent);
+    background: color-mix(in srgb, var(--tone) 7%, transparent);
+    animation: cgRise .5s cubic-bezier(.2,.8,.2,1) both;
+    animation-delay: calc(var(--i) * 70ms + 200ms);
+}
+
+.dash-insight.danger { --tone: #f87171; }
+.dash-insight.warn   { --tone: #fbbf24; }
+.dash-insight.info   { --tone: #22d3ee; }
+.dash-insight.good   { --tone: #34d399; }
+
+.dash-insight > i {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--tone) 18%, transparent);
+    color: var(--tone);
+}
+
+.dash-insight p {
+    flex: 1;
+    font-size: .8rem;
+    line-height: 1.8;
+    color: var(--cg-text);
+}
+
+.dash-insight a {
+    flex-shrink: 0;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--tone) 18%, transparent);
+    color: var(--tone);
+    font-size: .72rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.dash-insight a:hover {
+    background: var(--tone);
+    color: #050814;
+}
+
+
+/* ===== دونات وضعیت ===== */
+
+.dash-donut-wrap {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dash-donut {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 40px rgba(99,102,241,.25);
+    animation: dcSpinIn 1s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes dcSpinIn {
+    from { transform: rotate(-120deg) scale(.7); opacity: 0; }
+}
+
+.dash-donut > div {
+    width: 118px;
+    height: 118px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background: #0a1024;
+}
+
+.dash-donut strong {
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.dash-donut span {
+    color: var(--cg-muted);
+    font-size: .75rem;
+}
+
+.dash-legend {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 170px;
+}
+
+.dash-legend a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    color: var(--cg-text);
+    font-size: .82rem;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.dash-legend a:hover {
+    background: rgba(255,255,255,.05);
+}
+
+.dash-legend i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dash-legend b {
+    margin-inline-start: auto;
+}
+
+
+/* ===== پرفروش‌ها و موجودی ===== */
+
+.dash-top,
+.dash-stock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dash-top-row,
+.dash-stock-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    transition: background .2s ease;
+}
+
+.dash-top-row:hover,
+.dash-stock-row:hover {
+    background: rgba(255,255,255,.04);
+}
+
+.dash-rank {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,.06);
+    font-size: .75rem;
+    font-weight: 900;
+}
+
+.dash-rank.r1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1a1200; box-shadow: 0 0 14px rgba(251,191,36,.5); }
+.dash-rank.r2 { background: linear-gradient(135deg, #e2e8f0, #94a3b8); color: #0f172a; }
+.dash-rank.r3 { background: linear-gradient(135deg, #fdba74, #c2410c); color: #1a0a00; }
+
+.dash-top-img {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(34,211,238,.08);
+    color: var(--cg-cyan);
+}
+
+.dash-top-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dash-top-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dash-top-name {
+    margin-bottom: 5px;
+    font-size: .82rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dash-top-row b {
+    color: var(--cg-muted);
+    font-size: .76rem;
+    white-space: nowrap;
+}
+
+.dash-bar {
+    height: 6px;
+    border-radius: 6px;
+    background: rgba(255,255,255,.06);
+    overflow: hidden;
+}
+
+.dash-bar span {
+    display: block;
+    height: 100%;
+    width: var(--w);
+    border-radius: 6px;
+    background: var(--cg-grad);
+    box-shadow: 0 0 10px rgba(34,211,238,.5);
+    animation: dcGrow 1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes dcGrow {
+    from { width: 0; }
+}
+
+.dash-empty {
+    padding: 26px 10px;
+    color: var(--cg-muted);
+    font-size: .82rem;
+    text-align: center;
+}
+
+.dash-empty.ok {
+    color: #6ee7b7;
+}
+
+.dash-denied {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(248,113,113,.3);
+    background: rgba(248,113,113,.08);
+    color: #fca5a5;
+    font-size: .84rem;
+}
+
+
+/* ===== ریسپانسیو ===== */
+
+@media (max-width: 1200px) {
+    .dash-grid > .cg-card,
+    .dash-grid > .dash-chart-card,
+    .dash-grid > .dash-insights-card {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 600px) {
+    .stat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat-card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
+    .stat-card .stat-value { font-size: 1.05rem; }
+    .dash-insight { flex-wrap: wrap; }
 }

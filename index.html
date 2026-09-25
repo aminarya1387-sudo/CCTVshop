@@ -19,6 +19,7 @@
     <!-- CSS بخش‌های صفحه -->
     <link rel="stylesheet" href="css/navbar.css?v=20" />
     <link rel="stylesheet" href="css/hero.css?v=20" />
+    <link rel="stylesheet" href="css/hero-carousel.css?v=21" />
     <link rel="stylesheet" href="css/products.css?v=20" />
     <link rel="stylesheet" href="css/packages.css?v=20" />
     <link rel="stylesheet" href="css/categories.css?v=20" />
@@ -149,21 +150,32 @@
         </div>
     </nav>
 
-    <!-- ======== جشنواره ======== -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">🎉 جشنواره بزرگ بهار</span>
-            <h1>تا <span>۶۰٪</span> تخفیف ویژه</h1>
-            <p>بهترین دوربین‌های مداربسته + گارانتی ۲ ساله</p>
-            <div class="hero-countdown">
-                <i class="fas fa-clock"></i>
-                <span id="timer">۲۳:۵۹:۵۹</span>
+    <!-- ======== اسلایدر بنرها (از پنل مدیریت ← بنرها قابل مدیریت است) ======== -->
+    <section class="hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="بنرهای ویژه">
+        <div class="hc-viewport">
+            <div class="hc-track" id="heroTrack">
+                <!-- اسلاید پیش‌فرض (تا وقتی بنرها از سرور برسند یا اگر سرور در دسترس نبود) -->
+                <article class="hc-slide theme-ocean is-active">
+                    <div class="hc-bg"></div>
+                    <div class="hc-content">
+                        <span class="hc-badge">🎉 جشنواره بزرگ فصل</span>
+                        <h1>تا <span>۶۰٪ تخفیف ویژه</span></h1>
+                        <p>بهترین دوربین‌های مداربسته + گارانتی ۲ ساله</p>
+                        <a href="pages/products.html?filter=discount" class="btn-hero">مشاهده همه تخفیف‌ها <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                    <div class="hc-visual"><div class="hc-icon"><i class="fas fa-camera-retro"></i></div></div>
+                </article>
             </div>
-            <a href="pages/products.html?filter=discount" class="btn-hero">مشاهده همه تخفیف‌ها <i class="fas fa-arrow-left"></i></a>
         </div>
-        <div class="hero-image parallax" data-speed="20">
-            <i class="fas fa-camera-retro"></i>
+
+        <button type="button" class="hc-arrow hc-prev" id="heroPrev" aria-label="بنر قبلی"><i class="fas fa-chevron-right"></i></button>
+        <button type="button" class="hc-arrow hc-next" id="heroNext" aria-label="بنر بعدی"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="hc-footer">
+            <div class="hc-dots" id="heroDots" role="tablist"></div>
+            <div class="hc-counter" id="heroCounter"></div>
         </div>
+        <div class="hc-progress"><span id="heroProgress"></span></div>
     </section>
 
     <!-- ======== اسلایدر تخفیف‌ها ======== -->
@@ -259,6 +271,7 @@
 
     <!-- ماژول‌های رفتاری صفحه -->
     <script src="js/cart.js?v=20"></script>
+    <script src="js/hero-carousel.js?v=21"></script>
     <script src="js/slider.js?v=20"></script>
     <script src="js/products.js?v=20"></script>
     <script src="js/faq.js?v=20"></script>

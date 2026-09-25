@@ -92,4 +92,47 @@ db.exec(`
     )
 `);
 
+// ===== بنرهای اسلایدر صفحه اصلی (از پنل مدیریت قابل مدیریت است) =====
+// theme: یکی از پوسته‌های رنگی آماده (ocean, neon, sunset, emerald, royal, midnight)
+// startsAt/endsAt: بازه‌ی نمایش (اختیاری) - بیرون از بازه نمایش داده نمی‌شود
+// countdownEnd: اگر پر باشد، روی بنر شمارش معکوس تا آن لحظه نشان داده می‌شود
+// views/clicks: آمار نمایش و کلیک برای محاسبه‌ی CTR در پنل مدیریت
+const bannersTableExisted = !!db.prepare(
+    "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'banners'"
+).get();
+
+db.exec(`
+    CREATE TABLE IF NOT EXISTS banners (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        badge TEXT,
+        title TEXT NOT NULL,
+        highlight TEXT,
+        subtitle TEXT,
+        buttonText TEXT,
+        buttonLink TEXT,
+        image TEXT,
+        icon TEXT,
+        theme TEXT DEFAULT 'ocean',
+        countdownEnd TEXT,
+        startsAt TEXT,
+        endsAt TEXT,
+        active INTEGER DEFAULT 1,
+        sortOrder INTEGER DEFAULT 0,
+        views INTEGER DEFAULT 0,
+        clicks INTEGER DEFAULT 0,
+        createdAt TEXT DEFAULT (datetime('now'))
+    )
+`);
+
+// فقط بار اولی که جدول ساخته می‌شود چند بنر پیش‌فرض ریخته می‌شود؛ اگر
+// مدیر بعداً همه‌ی بنرها را حذف کند، دوباره پر نمی‌شود.
+if (!bannersTableExisted) {
+    require('./default-banners').forEach((b, index) => {
+        db.prepare(`
+            INSERT INTO banners (badge, title, highlight, subtitle, buttonText, buttonLink, image, icon, theme, countdownEnd, sortOrder)
+            VALUES (@badge, @title, @highlight, @subtitle, @buttonText, @buttonLink, @image, @icon, @theme, @countdownEnd, @sortOrder)
+        `).run({ ...b, sortOrder: index });
+    });
+}
+
 module.exports = db;

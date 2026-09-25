@@ -12,6 +12,7 @@ const session = require('express-session');
 const productsPublicRouter = require('./routes/products-public');
 const ordersPublicRouter = require('./routes/orders-public');
 const customersRouter = require('./routes/customers');
+const bannersPublicRouter = require('./routes/banners-public');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use(session({
 app.use('/api/products', productsPublicRouter);
 app.use('/api/orders', ordersPublicRouter);
 app.use('/api/customers', customersRouter);
+app.use('/api/banners', bannersPublicRouter);
 
 
 // ===== سرو کردن فایل‌های سایت عمومی =====

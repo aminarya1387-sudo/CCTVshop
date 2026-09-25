@@ -3,30 +3,7 @@
 // (بارگذاری شده بعد از همه ماژول‌های دیگر)
 // ============================================================
 
-// ===== COUNTDOWN TIMER =====
-let totalSeconds = 23 * 3600 + 59 * 60 + 59;
-
-function updateTimer() {
-    const timerEl = document.getElementById('timer');
-
-    // صفحاتی که تایمر جشنواره ندارند (مثل صفحه محصولات) این بخش را نادیده می‌گیرند
-    if (!timerEl) return;
-
-    if (totalSeconds <= 0) {
-        timerEl.innerText = '۰۰:۰۰:۰۰';
-        return;
-    }
-
-    totalSeconds--;
-
-    const hrs = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
-    const mins = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
-    const secs = String(totalSeconds % 60).padStart(2, '0');
-
-    timerEl.innerText = `${hrs}:${mins}:${secs}`;
-}
-
-setInterval(updateTimer, 1000);
+// (شمارش معکوس جشنواره حالا داخل هر بنر اسلایدر است - js/hero-carousel.js)
 
 
 // ============================================================

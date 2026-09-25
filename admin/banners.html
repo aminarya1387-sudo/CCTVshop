@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بنرهای اسلایدر | پنل مدیریت AMIN SYSTEM</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/jpeg" href="assets/company logo.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="css/admin-style.css?v=21" />
+    <link rel="stylesheet" href="css/admin-layout.css?v=21" />
+    <link rel="stylesheet" href="css/hero.css?v=21" />
+    <link rel="stylesheet" href="css/hero-carousel.css?v=21" />
+    <link rel="stylesheet" href="css/admin-theme.css?v=21" />
+    <link rel="stylesheet" href="css/admin-banners.css?v=21" />
+</head>
+<body>
+
+    <div class="admin-shell">
+
+        <aside class="admin-sidebar" id="adminSidebar"></aside>
+
+        <main class="admin-main">
+
+            <div class="admin-page-title">
+                <i class="fas fa-images"></i>
+                <div>
+                    <h1>بنرهای اسلایدر صفحه اصلی</h1>
+                    <p>بنر بساز، زمان‌بندی کن، ترتیبش را با کشیدن عوض کن و عملکردش را ببین</p>
+                </div>
+                <button type="button" class="cg-btn-primary bn-new-btn" id="newBannerBtn">
+                    <i class="fas fa-plus"></i> بنر جدید
+                </button>
+            </div>
+
+            <!-- ===== پیش‌نمایش زنده (دقیقاً همان اسلایدر صفحه اصلی) ===== -->
+            <section class="bn-preview-wrap">
+                <div class="bn-preview-label">
+                    <span><i class="fas fa-eye"></i> پیش‌نمایش زنده</span>
+                    <span class="bn-preview-tip">با ماوس بکش ← →</span>
+                </div>
+                <section class="hero-carousel is-preview" id="bannerPreview" data-manual>
+                    <div class="hc-viewport"><div class="hc-track"></div></div>
+                    <button type="button" class="hc-arrow hc-prev" aria-label="بنر قبلی"><i class="fas fa-chevron-right"></i></button>
+                    <button type="button" class="hc-arrow hc-next" aria-label="بنر بعدی"><i class="fas fa-chevron-left"></i></button>
+                    <div class="hc-footer">
+                        <div class="hc-dots" role="tablist"></div>
+                        <div class="hc-counter"></div>
+                    </div>
+                    <div class="hc-progress"><span></span></div>
+                </section>
+            </section>
+
+            <div class="bn-layout">
+
+                <!-- ===== فرم بنر ===== -->
+                <section class="admin-form-section bn-form-section" id="bannerFormSection">
+
+                    <h2 id="bannerFormTitle"><i class="fas fa-plus-circle"></i> بنر جدید</h2>
+
+                    <form id="bannerForm" class="admin-form" autocomplete="off">
+
+                        <input type="hidden" id="bannerId" value="" />
+
+                        <div class="bn-smart-box">
+                            <div class="bn-smart-title"><i class="fas fa-wand-magic-sparkles"></i> ساخت هوشمند</div>
+                            <div class="bn-smart-row">
+                                <select id="bannerFromProduct" class="cg-input">
+                                    <option value="">ساخت بنر از روی یک محصول…</option>
+                                </select>
+                                <button type="button" class="cg-chip-btn violet" id="bannerSuggestCopy" title="متن تبلیغاتی جدید پیشنهاد بده">
+                                    <i class="fas fa-shuffle"></i> متن پیشنهادی
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>پوسته‌ی رنگی</label>
+                            <div class="bn-themes" id="bannerThemes"></div>
+                            <input type="hidden" id="bannerTheme" value="ocean" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>برچسب بالای عنوان</label>
+                            <input type="text" id="bannerBadge" placeholder="مثال: 🎉 جشنواره بزرگ فصل" maxlength="60" />
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>عنوان (سفید) *</label>
+                                <input type="text" id="bannerTitle" placeholder="مثال: تا" maxlength="60" required />
+                            </div>
+                            <div class="form-group">
+                                <label>بخش درخشان عنوان</label>
+                                <input type="text" id="bannerHighlight" placeholder="مثال: ۶۰٪ تخفیف ویژه" maxlength="60" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>توضیح کوتاه</label>
+                            <input type="text" id="bannerSubtitle" placeholder="مثال: بهترین دوربین‌ها + گارانتی ۲ ساله" maxlength="140" />
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>متن دکمه</label>
+                                <input type="text" id="bannerButtonText" placeholder="مثال: مشاهده تخفیف‌ها" maxlength="40" />
+                            </div>
+                            <div class="form-group">
+                                <label>لینک دکمه</label>
+                                <input type="text" id="bannerButtonLink" list="bannerLinkOptions" placeholder="pages/products.html?filter=discount" dir="ltr" />
+                                <datalist id="bannerLinkOptions">
+                                    <option value="pages/products.html">همه محصولات</option>
+                                    <option value="pages/products.html?filter=discount">تخفیف‌ها</option>
+                                    <option value="pages/products.html?filter=bestseller">پرفروش‌ها</option>
+                                    <option value="pages/products.html?cat=camera">دوربین‌ها</option>
+                                    <option value="pages/products.html?cat=nvr">NVR / DVR</option>
+                                    <option value="pages/products.html?cat=package">پکیج‌ها</option>
+                                    <option value="pages/products.html?cat=accessory">تجهیزات جانبی</option>
+                                    <option value="pages/track-order.html">پیگیری سفارش</option>
+                                </datalist>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>عکس بنر (اختیاری)</label>
+                            <div class="bn-image-box" id="bannerImageBox">
+                                <div class="bn-image-empty"><i class="fas fa-image"></i> بدون عکس؛ آیکون نمایش داده می‌شود</div>
+                            </div>
+                            <div class="cg-inline-actions">
+                                <label class="cg-chip-btn" for="bannerImageFile"><i class="fas fa-upload"></i> آپلود عکس</label>
+                                <input type="file" id="bannerImageFile" accept="image/*" hidden />
+                                <button type="button" class="cg-chip-btn" id="bannerImageWeb"><i class="fas fa-globe"></i> جستجو از اینترنت</button>
+                                <button type="button" class="cg-chip-btn" id="bannerImageRemove" hidden><i class="fas fa-trash"></i> حذف عکس</button>
+                            </div>
+                            <input type="hidden" id="bannerImage" value="" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>آیکون (وقتی عکس نیست)</label>
+                            <div class="bn-icons" id="bannerIcons"></div>
+                            <input type="hidden" id="bannerIcon" value="fa-camera-retro" />
+                        </div>
+
+                        <div class="bn-fieldset">
+                            <div class="bn-fieldset-title"><i class="fas fa-calendar-days"></i> زمان‌بندی</div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>شروع نمایش</label>
+                                    <input type="datetime-local" id="bannerStartsAt" />
+                                </div>
+                                <div class="form-group">
+                                    <label>پایان نمایش</label>
+                                    <input type="datetime-local" id="bannerEndsAt" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>شمارش معکوس تا (اختیاری)</label>
+                                <input type="datetime-local" id="bannerCountdownEnd" />
+                                <div class="cg-inline-actions">
+                                    <button type="button" class="cg-chip-btn" data-countdown-days="1">۲۴ ساعت</button>
+                                    <button type="button" class="cg-chip-btn" data-countdown-days="3">۳ روز</button>
+                                    <button type="button" class="cg-chip-btn" data-countdown-days="7">یک هفته</button>
+                                    <button type="button" class="cg-chip-btn" data-countdown-days="0">بدون شمارش</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-checkbox">
+                            <label>
+                                <input type="checkbox" id="bannerActive" checked />
+                                فعال (در صفحه اصلی نمایش داده شود)
+                            </label>
+                        </div>
+
+                        <div class="cg-smart-hint" id="bannerHints"></div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit" id="bannerSubmitBtn">
+                                <i class="fas fa-save"></i> ذخیره بنر
+                            </button>
+                            <button type="button" class="btn-reset" id="bannerResetBtn">
+                                <i class="fas fa-undo"></i> بنر جدید
+                            </button>
+                        </div>
+
+                    </form>
+
+                </section>
+
+                <!-- ===== لیست بنرها ===== -->
+                <section class="admin-list-section bn-list-section">
+
+                    <div class="list-header">
+                        <h2><i class="fas fa-layer-group"></i> بنرها</h2>
+                        <span class="product-count" id="bannerCount">۰ بنر</span>
+                    </div>
+
+                    <p class="bn-list-hint"><i class="fas fa-grip-vertical"></i> ترتیب نمایش را با کشیدن کارت‌ها عوض کن.</p>
+
+                    <div class="bn-list" id="bannerList"></div>
+
+                    <div class="table-empty" id="bannerEmpty" style="display:none">
+                        <i class="fas fa-images"></i>
+                        <p>هنوز بنری ساخته نشده</p>
+                        <span>با فرم کنار اولین بنر را بساز</span>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div id="adminNotification" class="admin-notification"></div>
+
+    <script src="data/admin-users.js?v=21"></script>
+    <script src="js/store.js?v=21"></script>
+    <script src="js/auth.js?v=21"></script>
+    <script src="js/admin-smart.js?v=21"></script>
+    <script src="js/hero-carousel.js?v=21"></script>
+    <script src="js/admin-banners.js?v=21"></script>
+</body>
+</html>

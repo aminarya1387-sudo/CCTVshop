@@ -15,6 +15,7 @@ const paymentLabels = {
 };
 
 let currentStatusFilter = 'all';
+let currentQuery = '';
 
 
 function formatDate(iso) {
@@ -34,9 +35,12 @@ async function renderOrders() {
 
     const allOrders = await OrderStore.getAll();
 
-    const orders = currentStatusFilter === 'all'
+    const q = toEnDigits(currentQuery.trim().toLowerCase());
+
+    const orders = (currentStatusFilter === 'all'
         ? allOrders
-        : allOrders.filter(o => o.status === currentStatusFilter);
+        : allOrders.filter(o => o.status === currentStatusFilter))
+        .filter(o => !q || toEnDigits(`${o.orderNumber} ${o.customer.name} ${o.customer.phone}`.toLowerCase()).includes(q));
 
     countEl.innerText = `${allOrders.length} سفارش`;
 
@@ -109,6 +113,11 @@ async function renderOrders() {
         </div>
     `).join('');
 
+    // جستجوی دقیق یک سفارش (از جستجوی سریع) → کارتش باز شود
+    if (q && orders.length === 1) {
+        list.querySelector('.order-card').classList.add('open');
+    }
+
     // باز/بسته کردن کارت سفارش
     list.querySelectorAll('.order-card-head').forEach(head => {
         head.addEventListener('click', () => {
@@ -135,15 +144,39 @@ async function renderOrders() {
 }
 
 
+function setStatusFilter(status) {
+
+    currentStatusFilter = status;
+
+    document.querySelectorAll('.status-chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.status === status);
+    });
+
+}
+
+
 function initStatusFilter() {
+
+    // ?status=pending و ?q=AS-123456 (از داشبورد و جستجوی سریع)
+    const params = new URLSearchParams(location.search);
+
+    if (params.get('status')) setStatusFilter(params.get('status'));
+
+    const search = document.getElementById('orderSearch');
+
+    if (params.get('q')) {
+        currentQuery = params.get('q');
+        search.value = currentQuery;
+    }
+
+    search.addEventListener('input', () => {
+        currentQuery = search.value;
+        renderOrders();
+    });
 
     document.querySelectorAll('.status-chip').forEach(chip => {
         chip.addEventListener('click', () => {
-            currentStatusFilter = chip.dataset.status;
-
-            document.querySelectorAll('.status-chip').forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-
+            setStatusFilter(chip.dataset.status);
             renderOrders();
         });
     });

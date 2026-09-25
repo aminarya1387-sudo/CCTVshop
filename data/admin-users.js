@@ -24,6 +24,12 @@ const adminSections = [
         href: 'admin.html'
     },
     {
+        key: 'banners',
+        title: 'بنرهای اسلایدر',
+        icon: 'fa-images',
+        href: 'banners.html'
+    },
+    {
         key: 'orders',
         title: 'سفارش‌ها',
         icon: 'fa-receipt',
@@ -32,8 +38,8 @@ const adminSections = [
 ];
 
 const rolePermissions = {
-    admin: ['dashboard', 'products', 'orders'],
-    products_manager: ['dashboard', 'products'],
+    admin: ['dashboard', 'products', 'banners', 'orders'],
+    products_manager: ['dashboard', 'products', 'banners'],
     orders_manager: ['dashboard', 'orders']
 };
 

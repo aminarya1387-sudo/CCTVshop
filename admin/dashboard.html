@@ -6,9 +6,10 @@
     <title>داشبورد | پنل مدیریت AMIN SYSTEM</title>
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/jpeg" href="assets/company logo.jpg" />
-    <link rel="stylesheet" href="css/admin-style.css?v=20" />
-    <link rel="stylesheet" href="css/admin-layout.css?v=20" />
-    <link rel="stylesheet" href="css/dashboard.css?v=20" />
+    <link rel="stylesheet" href="css/admin-style.css?v=21" />
+    <link rel="stylesheet" href="css/admin-layout.css?v=21" />
+    <link rel="stylesheet" href="css/dashboard.css?v=21" />
+    <link rel="stylesheet" href="css/admin-theme.css?v=21" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
@@ -23,28 +24,63 @@
                 <i class="fas fa-gauge-high"></i>
                 <div>
                     <h1 id="welcomeTitle">خوش اومدی!</h1>
-                    <p>نگاه کلی به وضعیت فروشگاه</p>
+                    <p id="welcomeSub">نگاه کلی به وضعیت فروشگاه</p>
                 </div>
             </div>
 
             <div class="stat-grid" id="statGrid"></div>
 
-            <div class="dash-hint">
-                <i class="fas fa-lock"></i>
-                <div>
-                    <strong>یادآوری:</strong>
-                    این پنل برای یک پروژه بدون بک‌اند ساخته شده؛ ورود و دسترسی‌ها فقط سمت مرورگر بررسی می‌شوند و امنیت واقعی سرور ندارند.
-                </div>
+            <div class="dash-grid">
+
+                <section class="cg-card dash-chart-card" id="salesCard" hidden>
+                    <div class="dash-card-head">
+                        <h3><i class="fas fa-chart-area"></i> فروش ۱۴ روز اخیر</h3>
+                        <span class="dash-chip" id="salesTotal"></span>
+                    </div>
+                    <div class="dash-chart" id="salesChart"></div>
+                </section>
+
+                <section class="cg-card dash-insights-card">
+                    <div class="dash-card-head">
+                        <h3><i class="fas fa-brain"></i> دستیار هوشمند</h3>
+                        <span class="dash-chip violet" id="insightCount"></span>
+                    </div>
+                    <div class="dash-insights" id="insightList"></div>
+                </section>
+
+                <section class="cg-card" id="statusCard" hidden>
+                    <div class="dash-card-head">
+                        <h3><i class="fas fa-chart-pie"></i> وضعیت سفارش‌ها</h3>
+                    </div>
+                    <div class="dash-donut-wrap" id="statusDonut"></div>
+                </section>
+
+                <section class="cg-card" id="topCard" hidden>
+                    <div class="dash-card-head">
+                        <h3><i class="fas fa-ranking-star"></i> پرفروش‌ترین‌های واقعی</h3>
+                    </div>
+                    <div class="dash-top" id="topProducts"></div>
+                </section>
+
+                <section class="cg-card dash-stock-card" id="stockCard" hidden>
+                    <div class="dash-card-head">
+                        <h3><i class="fas fa-boxes-stacked"></i> موجودی رو به اتمام</h3>
+                        <a class="dash-chip" href="admin.html?filter=lowstock">همه <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                    <div class="dash-stock" id="lowStock"></div>
+                </section>
+
             </div>
 
         </main>
 
     </div>
 
-    <script src="data/admin-users.js?v=20"></script>
-    <script src="js/store.js?v=20"></script>
-    <script src="js/order-store.js?v=20"></script>
-    <script src="js/auth.js?v=20"></script>
-    <script src="js/dashboard.js?v=20"></script>
+    <script src="data/admin-users.js?v=21"></script>
+    <script src="js/store.js?v=21"></script>
+    <script src="js/order-store.js?v=21"></script>
+    <script src="js/auth.js?v=21"></script>
+    <script src="js/admin-smart.js?v=21"></script>
+    <script src="js/dashboard.js?v=21"></script>
 </body>
 </html>

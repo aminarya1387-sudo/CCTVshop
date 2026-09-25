@@ -6,8 +6,9 @@
     <title>محصولات | پنل مدیریت AMIN SYSTEM</title>
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/jpeg" href="assets/company logo.jpg" />
-    <link rel="stylesheet" href="css/admin-style.css?v=20" />
-    <link rel="stylesheet" href="css/admin-layout.css?v=20" />
+    <link rel="stylesheet" href="css/admin-style.css?v=21" />
+    <link rel="stylesheet" href="css/admin-layout.css?v=21" />
+    <link rel="stylesheet" href="css/admin-theme.css?v=21" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
@@ -38,6 +39,9 @@
                         <div class="form-group">
                             <label>عکس‌های محصول (چند عکس مجازه)</label>
                             <input type="file" id="productImageFile" accept="image/*" multiple />
+                            <div class="cg-inline-actions">
+                                <button type="button" class="cg-chip-btn" id="productImageWeb"><i class="fas fa-globe"></i> جستجوی عکس از اینترنت</button>
+                            </div>
                             <div class="image-grid" id="imageGrid"></div>
                             <span class="field-hint">عکس اول به عنوان عکس اصلی نمایش داده می‌شود؛ با دکمه ⭐ می‌تونی عکس اصلی رو عوض کنی. اگر عکسی انتخاب نکنی، از آیکون پایین استفاده می‌شود.</span>
                         </div>
@@ -45,6 +49,7 @@
                         <div class="form-group">
                             <label>نام محصول</label>
                             <input type="text" id="productName" placeholder="مثال: دوربین Bullet 4K" required />
+                            <div class="cg-smart-hint" id="nameHint"></div>
                         </div>
 
                         <div class="form-group">
@@ -55,6 +60,9 @@
                         <div class="form-group">
                             <label>توضیحات تکمیلی (اختیاری - برای صفحه جزئیات محصول)</label>
                             <textarea id="productLongDesc" rows="3" placeholder="اگر خالی بماند، توضیحات تکمیلی به‌صورت خودکار ساخته می‌شود"></textarea>
+                            <div class="cg-inline-actions">
+                                <button type="button" class="cg-chip-btn violet" id="autoWriteBtn"><i class="fas fa-wand-magic-sparkles"></i> نوشتن خودکار توضیحات از روی نام</button>
+                            </div>
                         </div>
 
                         <div class="form-row">
@@ -71,7 +79,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>درصد تخفیف</label>
-                                <input type="text" id="productDiscount" placeholder="۴۰٪" />
+                                <input type="text" id="productDiscount" placeholder="خودکار از روی دو قیمت" />
                             </div>
                             <div class="form-group">
                                 <label>آیکون یدکی (Font Awesome)</label>
@@ -94,6 +102,8 @@
                                 <input type="number" id="productStock" placeholder="۲۰" min="0" value="20" />
                             </div>
                         </div>
+
+                        <div class="cg-smart-hint" id="priceHint"></div>
 
                         <div class="form-group form-checkbox">
                             <label>
@@ -118,6 +128,30 @@
                     <div class="list-header">
                         <h2><i class="fas fa-list"></i> لیست محصولات</h2>
                         <span class="product-count" id="productCount">۰ محصول</span>
+                    </div>
+
+                    <div class="pm-toolbar">
+                        <div class="pm-search">
+                            <i class="fas fa-magnifying-glass"></i>
+                            <input type="search" id="productSearch" class="cg-input" placeholder="جستجو در نام و توضیحات…" />
+                        </div>
+                        <select id="productSort" class="cg-input">
+                            <option value="id">جدیدترین</option>
+                            <option value="name">نام</option>
+                            <option value="price-asc">ارزان‌ترین</option>
+                            <option value="price-desc">گران‌ترین</option>
+                            <option value="stock">کمترین موجودی</option>
+                        </select>
+                    </div>
+                    <div class="pm-filters" id="productFilters">
+                        <button type="button" class="status-chip active" data-filter="all">همه</button>
+                        <button type="button" class="status-chip" data-filter="camera">دوربین</button>
+                        <button type="button" class="status-chip" data-filter="nvr">NVR/DVR</button>
+                        <button type="button" class="status-chip" data-filter="package">پکیج</button>
+                        <button type="button" class="status-chip" data-filter="accessory">جانبی</button>
+                        <button type="button" class="status-chip" data-filter="lowstock"><i class="fas fa-triangle-exclamation"></i> موجودی کم</button>
+                        <button type="button" class="status-chip" data-filter="noimage"><i class="fas fa-image"></i> بدون عکس</button>
+                        <button type="button" class="status-chip" data-filter="discount"><i class="fas fa-percent"></i> تخفیف‌دار</button>
                     </div>
                     <div class="table-wrapper">
                         <table class="admin-table" id="productTable">
@@ -153,9 +187,10 @@
     <!-- ======== نوتیفیکیشن ======== -->
     <div id="adminNotification" class="admin-notification"></div>
 
-    <script src="data/admin-users.js?v=20"></script>
-    <script src="js/store.js?v=20"></script>
-    <script src="js/auth.js?v=20"></script>
-    <script src="js/admin.js?v=20"></script>
+    <script src="data/admin-users.js?v=21"></script>
+    <script src="js/store.js?v=21"></script>
+    <script src="js/auth.js?v=21"></script>
+    <script src="js/admin-smart.js?v=21"></script>
+    <script src="js/admin.js?v=21"></script>
 </body>
 </html>
